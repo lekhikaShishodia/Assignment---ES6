@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript class Example</title>
+
+    <style>
+        /* styling div */
+        #display{
+            font-weight: bold;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- A Div to display some text with help of javaScript -->
+    <div id="display"></div>
+
+    <script>
+        
+        //Parent class
+        class Car{
+            //constructor of parent class
+            constructor(brand){
+                this.carName = brand;
+            }
+            //function inside parent class
+            present(){
+                return 'I have a '+this.carName;
+            }
+        }
+
+        // Child class Model extending properties of parent class Car
+        class Model extends Car{
+            //Constructor of child class
+            constructor(brand, mod){
+                super(brand);   //calling parent class constructor with helpof super keyword
+                this.model=mod;
+            }
+            show(){
+                return this.present()+ `, it's a ${this.model}`;    
+            }
+        }
+
+        myCar = new Model("Ford","Mustang");    //creating object of child class Model
+
+        document.getElementById("display").innerHTML=myCar.show(); //calling function show of class Model with help of object.
+
+    </script>
+</body>
+</html>
